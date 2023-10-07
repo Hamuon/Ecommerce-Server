@@ -1,6 +1,5 @@
 export const typeDefs = `#graphql
 type Query {
-    hello: String
     products(filter: ProductsFilterInput): [Product!]!
     product(id: ID!): Product
     categories: [Category!]!

@@ -15,12 +15,10 @@ const server = new ApolloServer({
     Mutation,
     Category,
   },
-  context: {
-    db,
-  },
 });
 
 const { url } = await startStandaloneServer(server, {
+  context: async () => ({ db }),
   listen: { port: 4000 },
 });
 

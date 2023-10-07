@@ -1,7 +1,6 @@
 export const Query = {
-  hello: (parent, args, context) => "World",
   products: (parent, { filter }, { db }) => {
-    let filteredProducts = db.products;
+    const filteredProducts = db.products;
     if (filter) {
       const { onSale, avgRating } = filter;
       if (onSale) {
@@ -11,8 +10,8 @@ export const Query = {
       }
       if ([1, 2, 3, 4, 5].includes(avgRating)) {
         filteredProducts = filteredProducts.filter((product) => {
-          let sumRating = 0;
-          let numberOfReviews = 0;
+          const sumRating = 0;
+          const numberOfReviews = 0;
           db.reviews.forEach((review) => {
             if (review.productId === product.id) {
               sumRating += review.rating;
